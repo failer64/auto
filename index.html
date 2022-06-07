@@ -10,7 +10,7 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20220607155957">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220608002836">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="robots" content="noindex, nofollow">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -234,8 +234,65 @@
 			</div>
 		</div>
 	</div>
-	<script src="https://api-maps.yandex.ru/2.1?apikey=8d7bd03a-f132-4234-ac7b-1e031670c1a1&lang=ru_RU&load=Map,Placemark&mode=release&_v=20220607155957"></script>
-	<script src="js/app.min.js?_v=20220607155957"></script>
+	<!-- <script src="https://api-maps.yandex.ru/2.1?apikey=8d7bd03a-f132-4234-ac7b-1e031670c1a1&lang=ru_RU&onload=init&_v=20220608002836"></script> -->
+
+	<script>
+		setTimeout(function() {
+			var elem = document.createElement('script');
+			//elem.type = 'text/javascript';
+			elem.src = 'https://api-maps.yandex.ru/2.1?apikey=8d7bd03a-f132-4234-ac7b-1e031670c1a1&lang=ru_RU&onload=init';
+			document.getElementsByTagName('body')[0].appendChild(elem);
+		}, 2000);
+
+
+		function init(ymaps) {
+			// Создание карты.
+			let myMap = new ymaps.Map("map", {
+				// Координаты центра карты.
+				// Порядок по умолчанию: «широта, долгота».
+				// Чтобы не определять координаты центра карты вручную,
+				// воспользуйтесь инструментом Определение координат.
+				controls: [],
+				center: [59.953928, 30.371139],
+				// Уровень масштабирования. Допустимые значения:
+				// от 0 (весь мир) до 19.
+				zoom: 10,
+
+			});
+			let myPlacemark = new ymaps.Placemark(
+				[59.958800, 30.474933], {
+					balloonContentHeader: "ST TUNING",
+					balloonContentBody: "Ириновский проспект 24к.",
+					balloonContentFooter: "<a  href = 'tel:88129050600' > 8 (812) 905-06-00 </a >",
+					hasBalloon: true,
+					hideIconOnBalloonOpen: true,
+				}, {
+					// Необходимо указать данный тип макета.
+					iconLayout: 'default#imageWithContent',
+					// Своё изображение иконки метки.
+					iconImageHref: 'img/map.png',
+					// Размеры метки.
+					iconImageSize: [40, 40],
+					// Смещение левого верхнего угла иконки относительно
+					// её "ножки" (точки привязки).
+					iconImageOffset: [-20, -20],
+					// Смещение слоя с содержимым относительно слоя с картинкой.
+					iconContentOffset: [0, 0],
+				},
+			);
+
+
+
+			myMap.geoObjects.add(myPlacemark);
+
+			//myMap.behaviors.disable('scrollZoom');
+			//myMap.behaviors.disable('drag');
+
+		}
+	</script>
+
+
+	<script src="js/app.min.js?_v=20220608002836"></script>
 </body>
 
 </html>
