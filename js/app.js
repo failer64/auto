@@ -14,6 +14,13 @@
             document.documentElement.classList.add(className);
         }));
     }
+    function addLoadedClass() {
+        window.addEventListener("load", (function() {
+            setTimeout((function() {
+                document.documentElement.classList.add("loaded");
+            }), 0);
+        }));
+    }
     let bodyLockStatus = true;
     let bodyLockToggle = (delay = 500) => {
         if (document.documentElement.classList.contains("lock")) bodyUnlock(delay); else bodyLock(delay);
@@ -272,24 +279,6 @@
             FLS(`[Формы]: ${message}`);
         }
     }
-    const inputMasks = document.querySelectorAll("input");
-    if (inputMasks.length) for (let index = 0; index < inputMasks.length; index++) {
-        const input = inputMasks[index];
-        if (input.classList.contains("_date")) Inputmask("99.99.9999", {
-            onincomplete: function() {
-                input.classList.add("_form-error");
-            },
-            clearIncomplete: true,
-            clearMaskOnLostFocus: true
-        }).mask(input);
-        if (input.classList.contains("_tel")) Inputmask("+7(999)999-99-99", {
-            onincomplete: function() {
-                input.classList.add("_form-error");
-            },
-            clearIncomplete: true,
-            clearMaskOnLostFocus: true
-        }).mask(input);
-    }
     class ScrollWatcher {
         constructor(props) {
             let defaultConfig = {
@@ -387,7 +376,7 @@
                 document.getElementsByTagName("body")[0].appendChild(elem);
                 setTimeout((function() {
                     ymaps.ready(init);
-                }), 2e3);
+                }), 1e3);
                 function init(ymaps) {
                     let myMap = new ymaps.Map("map", {
                         controls: [],
@@ -518,8 +507,12 @@
     };
     const da = new DynamicAdapt("max");
     da.init();
+    setTimeout((function() {
+        document.documentElement.classList.add("loaded");
+    }), 1e3);
     window["FLS"] = false;
     isWebp();
+    addLoadedClass();
     menuInit();
     formFieldsInit({
         viewPass: false
