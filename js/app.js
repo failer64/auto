@@ -760,7 +760,7 @@
             document.head.appendChild(script);
             setTimeout((function() {
                 ymaps.ready(init);
-            }), 1e3);
+            }), 2e3);
         }
         if (document.querySelector("#map")) mapAdd();
         function init(ymaps) {
