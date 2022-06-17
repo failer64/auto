@@ -777,7 +777,6 @@ body::after {
 }
 
 .services__image {
-  position: relative;
   z-index: 3;
   padding: 0px 0px 39.4% 0px;
 }
