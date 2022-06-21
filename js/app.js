@@ -2901,7 +2901,7 @@
                             hideIconOnBalloonOpen: true
                         }, {
                             iconLayout: "default#imageWithContent",
-                            iconImageHref: "../../img/map.png",
+                            iconImageHref: "./img/map.png",
                             iconImageSize: [ 40, 40 ],
                             iconImageOffset: [ -20, -20 ],
                             iconContentOffset: [ 0, 0 ]

@@ -1290,12 +1290,6 @@ body::after {
   }
 }
 
-@media (min-width: 122.5em) {
-  .map__content {
-    height: inherit;
-  }
-}
-
 @media (min-width: 124.375em) {
   .we__row {
     padding: 0 1rem;
@@ -1447,10 +1441,6 @@ body::after {
 
   .contacts__contacts {
     margin-bottom: 2.5rem;
-  }
-
-  .map__content {
-    height: inherit;
   }
 
 @supports (height: clamp( 18.125rem , 15.6100299401rem  +  12.5748502994vw , 31.25rem )) {
