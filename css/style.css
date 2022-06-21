@@ -1443,29 +1443,10 @@ body::after {
     margin-bottom: 2.5rem;
   }
 
-@supports (height: clamp( 18.125rem , 15.6100299401rem  +  12.5748502994vw , 31.25rem )) {
-    .map__content {
-      height: clamp( 18.125rem , 15.6100299401rem  +  12.5748502994vw , 31.25rem );
-    }
-}
-
-@supports not (height: clamp( 18.125rem , 15.6100299401rem  +  12.5748502994vw , 31.25rem )) {
-    .map__content {
-      height: calc(18.125rem + 13.125 * (100vw - 20rem) / 104.375);
-    }
-}
-
-@supports (width: clamp( 18.125rem , 15.6100299401rem  +  12.5748502994vw , 31.25rem )) {
-    .map__content {
-      width: clamp( 18.125rem , 15.6100299401rem  +  12.5748502994vw , 31.25rem );
-    }
-}
-
-@supports not (width: clamp( 18.125rem , 15.6100299401rem  +  12.5748502994vw , 31.25rem )) {
-    .map__content {
-      width: calc(18.125rem + 13.125 * (100vw - 20rem) / 104.375);
-    }
-}
+  .map__content {
+    height: 37.5rem;
+    width: 37.5rem;
+  }
 
   .map__decor {
     opacity: 0.5;
@@ -1765,6 +1746,38 @@ body::after {
         -ms-flex: 0 0 1.25rem;
             flex: 0 0 1.25rem;
     margin: 0px 0.625rem 0px 0px;
+  }
+
+  .map__content {
+    border-radius: 0%;
+  }
+
+@supports (height: clamp( 18.75rem , 16.3547904192rem  +  11.9760479042vw , 31.25rem )) {
+    .map__content {
+      height: clamp( 18.75rem , 16.3547904192rem  +  11.9760479042vw , 31.25rem );
+    }
+}
+
+@supports not (height: clamp( 18.75rem , 16.3547904192rem  +  11.9760479042vw , 31.25rem )) {
+    .map__content {
+      height: calc(18.75rem + 12.5 * (100vw - 20rem) / 104.375);
+    }
+}
+
+@supports (width: clamp( 18.75rem , 16.3547904192rem  +  11.9760479042vw , 31.25rem )) {
+    .map__content {
+      width: clamp( 18.75rem , 16.3547904192rem  +  11.9760479042vw , 31.25rem );
+    }
+}
+
+@supports not (width: clamp( 18.75rem , 16.3547904192rem  +  11.9760479042vw , 31.25rem )) {
+    .map__content {
+      width: calc(18.75rem + 12.5 * (100vw - 20rem) / 104.375);
+    }
+}
+
+  .map__decor {
+    display: none;
   }
 
   .socials__item:not(:last-child) {
